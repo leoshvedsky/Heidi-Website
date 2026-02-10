@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const writings = await getCollection('writings');
+const featured = writings
+  .filter((w) => w.data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const recent = writings
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+
+const displayPosts = featured.length > 0 ? featured : recent;
+
+const tagColors = ['tag-pink', 'tag-green', 'tag-yellow', 'tag-lavender', 'tag-peach'];
+---
+
+<BaseLayout title="Home — Writing Portfolio">
+  <section class="hero">
+    <h1>Hello, welcome in.</h1>
+    <p class="hero-sub">
+      A quiet corner for writing, thinking, and collecting things worth sharing.
+    </p>
+  </section>
+
+  <section class="writings-section">
+    <div class="section-header">
+      <h2>{featured.length > 0 ? 'Featured' : 'Recent'}</h2>
+      <a href="/writings/" class="see-all">See all &rarr;</a>
+    </div>
+
+    <ul class="writing-list">
+      {displayPosts.map((post) => (
+        <li class="writing-item">
+          <a href={`/writings/${post.slug}/`} class="writing-link">
+            <span class="writing-title">{post.data.title}</span>
+            {post.data.description && (
+              <span class="writing-desc">{post.data.description}</span>
+            )}
+            <span class="writing-meta">
+              <time datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+              {post.data.tags.length > 0 && (
+                <span class="writing-tags">
+                  {post.data.tags.map((tag, i) => (
+                    <span class={`tag ${tagColors[i % tagColors.length]}`}>{tag}</span>
+                  ))}
+                </span>
+              )}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 36ch;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .see-all {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-decoration: none;
+  }
+
+  .see-all:hover {
+    color: var(--text-heading);
+  }
+
+  .writing-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .writing-item {
+    border-radius: var(--radius);
+    transition: background-color 0.15s ease;
+  }
+
+  .writing-item:hover {
+    background-color: var(--pink-light);
+  }
+
+  .writing-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    text-decoration: none;
+  }
+
+  .writing-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+
+  .writing-desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+
+  .writing-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+
+  .writing-tags {
+    display: flex;
+    gap: var(--space-xs);
+  }
+</style>

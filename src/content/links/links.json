@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Marginalia Search",
+    "url": "https://search.marginalia.nu/",
+    "description": "A search engine that favors text-heavy, non-commercial websites.",
+    "category": "tools"
+  },
+  {
+    "title": "The Creative Independent",
+    "url": "https://thecreativeindependent.com/",
+    "description": "Interviews and guides for creative people on sustaining their practice.",
+    "category": "reading"
+  },
+  {
+    "title": "Hundred Rabbits",
+    "url": "https://100r.co/",
+    "description": "Two artists living on a sailboat, making open-source tools.",
+    "category": "inspiration"
+  },
+  {
+    "title": "Gwern.net",
+    "url": "https://gwern.net/",
+    "description": "Long-form research and writing on a beautifully designed personal site.",
+    "category": "reading"
+  },
+  {
+    "title": "Astro",
+    "url": "https://astro.build/",
+    "description": "The framework this site is built with. Fast, flexible, Markdown-first.",
+    "category": "tools"
+  },
+  {
+    "title": "Are.na",
+    "url": "https://www.are.na/",
+    "description": "A platform for collecting and connecting ideas visually.",
+    "category": "tools"
+  },
+  {
+    "title": "Robin Sloan's Lab",
+    "url": "https://www.robinsloan.com/lab/",
+    "description": "Experiments in writing and technology from a novelist.",
+    "category": "inspiration"
+  }
+]
