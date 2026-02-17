@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const writings = (await getCollection('writings'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const tagColors = ['tag-pink', 'tag-green', 'tag-yellow', 'tag-lavender', 'tag-peach'];
+---
+
+<BaseLayout title="Writings — Portfolio" description="All writings and essays">
+  <section class="page-header">
+    <h1>Writings</h1>
+    <p>Essays, notes, and things on my mind.</p>
+  </section>
+
+  <ul class="writing-list">
+    {writings.map((post) => (
+      <li class="writing-item">
+        <a href={`/writings/${post.slug}/`} class="writing-link">
+          <div class="writing-top">
+            <span class="writing-title">{post.data.title}</span>
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+            </time>
+          </div>
+          {post.data.description && (
+            <span class="writing-desc">{post.data.description}</span>
+          )}
+          {post.data.tags.length > 0 && (
+            <div class="writing-tags">
+              {post.data.tags.map((tag, i) => (
+                <span class={`tag ${tagColors[i % tagColors.length]}`}>{tag}</span>
+              ))}
+            </div>
+          )}
+        </a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .page-header p {
+    color: var(--text-light);
+  }
+
+  .writing-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .writing-item {
+    border-radius: var(--radius);
+    transition: background-color 0.15s ease;
+  }
+
+  .writing-item:hover {
+    background-color: var(--pink-light);
+  }
+
+  .writing-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    text-decoration: none;
+  }
+
+  .writing-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+  }
+
+  .writing-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+
+  time {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+
+  .writing-desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+
+  .writing-tags {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+  }
+</style>
