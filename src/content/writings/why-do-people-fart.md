@@ -3,7 +3,7 @@ title: "Why Do People Fart?"
 description: "On the value of sharing what you're figuring out, not just what you've figured out."
 date: 2025-11-20
 tags: ["writing", "learning"]
-featured: false
+featured: true
 ---
 
 I really don't know what to say here! Why do people fart? 
