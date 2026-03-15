@@ -3,7 +3,7 @@ title: "The Small Web"
 description: "Thoughts on personal websites and the corners of the internet that still feel human."
 date: 2026-02-01
 tags: ["internet", "culture"]
-featured: true
+featured: false
 ---
 
 Somewhere between the algorithmic feeds and the SEO-optimized content farms, there's still a web that feels like it was made by people. For people. Without a growth strategy.
