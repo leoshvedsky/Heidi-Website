@@ -20,7 +20,7 @@ const categoryColors: Record<string, string> = {
 <BaseLayout title="Links — Portfolio" description="Bookmarks and things worth sharing">
   <section class="page-header">
     <h1>Links</h1>
-    <p>Bookmarks, recommendations, and things I keep coming back to.</p>
+    <p>My writings that are out there right now, chech 'em out!</p>
   </section>
 
   {Object.entries(grouped).map(([category, links]) => (
@@ -33,7 +33,7 @@ const categoryColors: Record<string, string> = {
           <li class="link-item">
             <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
               <span class="link-title">{link.title} <span class="external-icon">&nearr;</span></span>
-              {link.data.description && (
+              {link.description && (
                 <span class="link-desc">{link.description}</span>
               )}
             </a>
