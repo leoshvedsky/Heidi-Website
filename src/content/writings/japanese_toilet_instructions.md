@@ -1,5 +1,5 @@
 ---
-title: "A Beginner’s Guide to Eighteen of the Buttons on Your Japanese Toilet (Pt. 1 of 6e"
+title: "A Beginner’s Guide to Eighteen of the Buttons on Your Japanese Toilet (Pt. 1 of 6)"
 description: "Your New Toto and You."
 date: 2026-03-01
 tags: ["Humor", "Japan"]
