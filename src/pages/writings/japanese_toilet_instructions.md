@@ -6,7 +6,7 @@ tags: ["Humor", "Japan"]
 featured: true
 ---
 
-Button One: Heats the seat for a relaxing toilet experience.
+Button One: Heats the seat for a relaxing toilet experience.</br>
 
 Button Two: Bidet. Button two contains six other buttons, because there are six unique ways
 water can spray square into your butthole: Light mist, Ocean fog, Autumn rain, Geyser steam,
