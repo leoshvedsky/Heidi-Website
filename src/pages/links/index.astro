@@ -1,13 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import links from "../../data/links.json";
 
-const linksData = await getCollection('links');
-
-// Group links by category
-const grouped: Record<string, typeof linksData> = {};
-for (const link of linksData) {
-  const cat = link.data.category;
+const grouped: Record<string, typeof links> = {};
+for (const link of links) {
+  const cat = link.category;
   if (!grouped[cat]) grouped[cat] = [];
   grouped[cat].push(link);
 }
@@ -34,10 +31,10 @@ const categoryColors: Record<string, string> = {
       <ul class="link-list">
         {links.map((link) => (
           <li class="link-item">
-            <a href={link.data.url} target="_blank" rel="noopener noreferrer" class="link-card">
-              <span class="link-title">{link.data.title} <span class="external-icon">&nearr;</span></span>
+            <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-title">{link.title} <span class="external-icon">&nearr;</span></span>
               {link.data.description && (
-                <span class="link-desc">{link.data.description}</span>
+                <span class="link-desc">{link.description}</span>
               )}
             </a>
           </li>
