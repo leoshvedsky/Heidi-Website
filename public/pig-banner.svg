@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <rect width="800" height="200" rx="12" fill="#fce4ec"/>
+  <!-- Pig body -->
+  <ellipse cx="400" cy="110" rx="60" ry="45" fill="#f4b8c1"/>
+  <!-- Pig head -->
+  <circle cx="340" cy="95" r="35" fill="#f4b8c1"/>
+  <!-- Ears -->
+  <ellipse cx="320" cy="65" rx="12" ry="18" fill="#e8a0a0" transform="rotate(-15 320 65)"/>
+  <ellipse cx="355" cy="62" rx="12" ry="18" fill="#e8a0a0" transform="rotate(15 355 62)"/>
+  <!-- Snout -->
+  <ellipse cx="318" cy="100" rx="16" ry="12" fill="#e8a0a0"/>
+  <circle cx="313" cy="98" r="3" fill="#d48a8a"/>
+  <circle cx="323" cy="98" r="3" fill="#d48a8a"/>
+  <!-- Eyes -->
+  <circle cx="330" cy="87" r="4" fill="#3d3d3d"/>
+  <circle cx="350" cy="87" r="4" fill="#3d3d3d"/>
+  <circle cx="331" cy="86" r="1.5" fill="white"/>
+  <circle cx="351" cy="86" r="1.5" fill="white"/>
+  <!-- Legs -->
+  <rect x="370" y="140" width="12" height="20" rx="6" fill="#e8a0a0"/>
+  <rect x="395" y="140" width="12" height="20" rx="6" fill="#e8a0a0"/>
+  <rect x="420" y="140" width="12" height="20" rx="6" fill="#e8a0a0"/>
+  <rect x="445" y="140" width="12" height="20" rx="6" fill="#e8a0a0"/>
+  <!-- Tail -->
+  <path d="M460 105 Q475 90 470 110 Q465 130 480 115" stroke="#e8a0a0" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Decorative flowers -->
+  <circle cx="150" cy="100" r="8" fill="#f5e6a3"/>
+  <circle cx="150" cy="85" r="5" fill="#fcd5ce"/>
+  <circle cx="160" cy="93" r="5" fill="#fcd5ce"/>
+  <circle cx="155" cy="105" r="5" fill="#fcd5ce"/>
+  <circle cx="140" cy="93" r="5" fill="#fcd5ce"/>
+  <circle cx="145" cy="105" r="5" fill="#fcd5ce"/>
+  <circle cx="650" cy="100" r="8" fill="#d4c5f9"/>
+  <circle cx="650" cy="85" r="5" fill="#b8d8ba"/>
+  <circle cx="660" cy="93" r="5" fill="#b8d8ba"/>
+  <circle cx="655" cy="105" r="5" fill="#b8d8ba"/>
+  <circle cx="640" cy="93" r="5" fill="#b8d8ba"/>
+  <circle cx="645" cy="105" r="5" fill="#b8d8ba"/>
+</svg>
