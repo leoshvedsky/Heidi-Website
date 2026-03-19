@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import links from "../../data/links.json";
 
-// Group links by category
 const grouped: Record<string, typeof links> = {};
 for (const link of links) {
   const cat = link.category;
