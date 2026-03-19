@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-
-const linksData = await getCollection('links');
+import links from "../../data/links.json";
 
 // Group links by category
-const grouped: Record<string, typeof linksData> = {};
-for (const link of linksData) {
-  const cat = link.data.category;
+const grouped: Record<string, typeof links> = {};
+for (const link of links) {
+  const cat = link.category;
   if (!grouped[cat]) grouped[cat] = [];
   grouped[cat].push(link);
 }
@@ -23,7 +21,7 @@ const categoryColors: Record<string, string> = {
 <BaseLayout title="Links — Portfolio" description="Bookmarks and things worth sharing">
   <section class="page-header">
     <h1>Links</h1>
-    <p>These are some of my humor posts!</p>
+    <p>My writings that are out there right now, check 'em out!</p>
   </section>
 
   {Object.entries(grouped).map(([category, links]) => (
