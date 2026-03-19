@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    title: 'Favorites',
+    items: [
+      { name: 'Sample Film', year: 2024, type: 'film', note: 'Add your favorites here' },
+    ],
+  },
+  {
+    title: 'Currently Watching',
+    items: [
+      { name: 'Sample Show', year: 2025, type: 'tv', note: 'Add what you\'re watching' },
+    ],
+  },
+  {
+    title: 'Recommendations',
+    items: [
+      { name: 'Sample Recommendation', year: 2023, type: 'film', note: 'Add your recommendations' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Film & TV — Writing Portfolio">
+  <section class="page-header">
+    <h1>Film & TV</h1>
+    <p class="page-desc">This is stuff I've written it's on TV!</p>
+  </section>
+
+  <section class="category-section">
+    <h2>Just Divorced!</h2>
+    <div class="video-embed">
+      <iframe
+        src="https://www.youtube.com/embed/U3nTHePXZRs"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  {categories.map((category) => (
+    <section class="category-section">
+      <h2>{category.title}</h2>
+      <ul class="item-list">
+        {category.items.map((item) => (
+          <li class="item-card">
+            <div class="item-info">
+              <span class="item-name">{item.name}</span>
+              <span class="item-meta">
+                <span class={`tag ${item.type === 'film' ? 'tag-lavender' : 'tag-peach'}`}>{item.type}</span>
+                <span class="item-year">{item.year}</span>
+              </span>
+            </div>
+            {item.note && <p class="item-note">{item.note}</p>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .page-desc {
+    color: var(--text-light);
+    font-size: 1.1rem;
+  }
+
+  .category-section {
+    margin-bottom: var(--space-xl);
+  }
+
+  .category-section h2 {
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-md);
+  }
+
+  .item-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .item-card {
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    transition: background-color 0.15s ease;
+  }
+
+  .item-card:hover {
+    background-color: var(--pink-light);
+  }
+
+  .item-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .item-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+
+  .item-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+
+  .item-note {
+    margin-top: var(--space-xs);
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  .video-embed {
+    margin-top: var(--space-md);
+  }
+
+  .video-embed iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    border-radius: var(--radius);
+    border: none;
+  }
+</style>
