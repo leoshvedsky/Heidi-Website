@@ -34,10 +34,10 @@ const categoryColors: Record<string, string> = {
       <ul class="link-list">
         {links.map((link) => (
           <li class="link-item">
-            <a href={link.data.url} target="_blank" rel="noopener noreferrer" class="link-card">
-              <span class="link-title">{link.data.title} <span class="external-icon">&nearr;</span></span>
-              {link.data.description && (
-                <span class="link-desc">{link.data.description}</span>
+            <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-title">{link.title} <span class="external-icon">&nearr;</span></span>
+              {link.description && (
+                <span class="link-desc">{link.description}</span>
               )}
             </a>
           </li>
